@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using CleanArch.Infrastructure.Data.Context;
+using CleanArch.Infrastructure.IoC;
 
 namespace CleanArch.Mvc
 {
@@ -40,6 +41,8 @@ namespace CleanArch.Mvc
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            DependencyContainer.RegisterSerivices(services);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -71,5 +74,6 @@ namespace CleanArch.Mvc
                 endpoints.MapRazorPages();
             });
         }
+
     }
 }
