@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using CleanArch.Infrastructure.Data.Context;
 using CleanArch.Infrastructure.IoC;
+using MediatR;
+using CleanArch.Mvc.Configurations;
 
 namespace CleanArch.Mvc
 {
@@ -41,6 +43,10 @@ namespace CleanArch.Mvc
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddMediatR(typeof(Startup));
+
+            services.RegisterAutoMapper();
 
             DependencyContainer.RegisterSerivices(services);
         }
